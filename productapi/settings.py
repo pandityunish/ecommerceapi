@@ -133,3 +133,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     )
 }
+
+STATIC_URL='/products/images/'
+
+STATICFILES_DIRS = [
+"products/images"
+]
