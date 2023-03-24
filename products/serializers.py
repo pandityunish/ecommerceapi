@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from products.models import Product,ProductsImage,Sliders
+from products.models import Product,ProductsImage,Sliders,Specialoffer
 
 
 #create serializers here
@@ -28,4 +28,9 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class SliderSerializers(serializers.ModelSerializer):
     class Meta:
         model = Sliders
+        fields = "__all__"
+
+class SpecialOfferSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Specialoffer
         fields = "__all__"

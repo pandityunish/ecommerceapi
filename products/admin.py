@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from products.models import Product,Sliders,ProductsImage
+from products.models import Product,Sliders,ProductsImage,Specialoffer
 # Register your models here.
 
 class ItemInline(admin.StackedInline):
@@ -14,3 +14,5 @@ class ImageAdmin(admin.ModelAdmin):
 
 admin.site.register(Product,ImageAdmin)
 admin.site.register(Sliders)
+admin.site.register(Specialoffer)
+  

@@ -21,3 +21,12 @@ class ProductsImage(models.Model):
         return "%s" % (self.product.product_name)
 class Sliders(models.Model):
     image = models.ImageField(upload_to='products/images', default="")
+
+class Specialoffer(models.Model):
+    product_id = models.AutoField
+    name = models.CharField(max_length=50)
+    brand = models.IntegerField(default=0)
+    image=models.ImageField(upload_to="products/images",default='')
+
+    def __str__(self):
+        return self.name
