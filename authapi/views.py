@@ -36,8 +36,10 @@ class UserRegistrationView(APIView):
 
 #User Login
 class UserLoginView(APIView):
-    permission_classes = (AllowAny,)  # Allow any user to access this view
+    permission_classes = (AllowAny,) 
+     # Allow any user to access this view
     def post(self,request,format=None):
+
         serializer=UserLoginSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             email=serializer.data.get("email")
@@ -81,17 +83,22 @@ class SendPasswordRestEmailView(APIView):
        serializer= SendPasswordResetEmailSerializer(data=request.data)
        if serializer.is_valid(raise_exception=True):
            return Response({'msg':'Password Reset link send. Please Check Your Email'},status=status.HTTP_200_OK)
+           
        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # User PasswordResetView
 class UserPasswordResetView(APIView):
     renderer_classes = [UserRender]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self,request,uid,token,format=None):
        serializer= UserPasswordResetSerializer(data=request.data,context={'uid':uid,'token':token})
        if serializer.is_valid(raise_exception=True):
            return Response({'msg':'Password Reset Successfully'},status=status.HTTP_200_OK)
        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+           
+
+
+
            

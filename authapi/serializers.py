@@ -103,7 +103,6 @@ class SendPasswordResetEmailSerializer(serializers.Serializer):
                 'subject':'reset you password',
                 'body':body,
                 'to_email':user.email
-
             }
             return attrs
         else:
