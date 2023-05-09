@@ -48,8 +48,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'products',
     'authapi',
-    
-]
+    'order',
+    'category'
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

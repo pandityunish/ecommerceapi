@@ -33,11 +33,13 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+
     email = models.EmailField(
         verbose_name="Email",
         max_length=255,
         unique=True,
     )
+    
     name = models.CharField(max_length=20)
     tc = models.BooleanField()
     phone_number = models.CharField(max_length=10, blank=True, null=True, validators=[MinLengthValidator(10)])
