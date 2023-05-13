@@ -8,5 +8,5 @@ router.register(r'sliders',SliderViewSet),
 router.register(r'sepcialoffer',SpecialViewSet),
 router.register(r'popularproduct',PopularProductViewSet)
 urlpatterns = [
-    path('',include(router.urls))
+    path('product/',include(router.urls))
 ]
