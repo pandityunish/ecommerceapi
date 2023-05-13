@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'products',
     'authapi',
     'order',
-    'category'
+    'category',
+    'reviews'
     ]
 
 MIDDLEWARE = [

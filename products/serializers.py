@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from products.models import Product,ProductsImage,Sliders,Specialoffer
+from products.models import Product,ProductsImage,Sliders,Specialoffer,PopularProduct,PopularProductsImage
 
 
 #create serializers here
@@ -25,6 +25,25 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
             ProductsImage.objects.create(product=product, image=image)
 
         return product
+    
+class PopularProductSerializer(serializers.HyperlinkedModelSerializer):
+    images =  ProductsImageSerializers(many=True, read_only=True)
+    uploaded_images = serializers.ListField(
+        child=serializers.ImageField(allow_empty_file=False, use_url=False),
+        write_only=True
+    )
+    class Meta:
+        model=PopularProduct
+        fields="__all__"
+
+    def create(self, validated_data):
+        uploaded_images = validated_data.pop("uploaded_images")
+        product = PopularProduct.objects.create(**validated_data)
+
+        for image in uploaded_images:
+            PopularProductsImage.objects.create(product=product, image=image)
+
+        return product   
 class SliderSerializers(serializers.ModelSerializer):
     class Meta:
         model = Sliders
