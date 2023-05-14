@@ -15,6 +15,7 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
         
+
 class PopularProduct(models.Model):
     product_id = models.AutoField
     product_name = models.CharField(max_length=50)
@@ -27,12 +28,15 @@ class PopularProduct(models.Model):
     def __str__(self):
         return self.product_name
     
+    
 class ProductsImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE,                                                    related_name='images')
     image = models.ImageField(upload_to="products/images")
  
     def __str__(self):
         return "%s" % (self.product.product_name)
+    
+
 class PopularProductsImage(models.Model):
     popularproduct=models.ForeignKey(PopularProduct,on_delete=models.CASCADE,)
 
@@ -40,6 +44,7 @@ class PopularProductsImage(models.Model):
  
     def __str__(self):
         return "%s" % (self.popularproduct.product_name)
+    
 class Sliders(models.Model):
     image = models.ImageField(upload_to='products/images', default="")
 
