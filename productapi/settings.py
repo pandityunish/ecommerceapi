@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'authapi',
     'order',
     'category',
-    'reviews'
+    'feedback',
+    'locations'
     ]
 
 MIDDLEWARE = [

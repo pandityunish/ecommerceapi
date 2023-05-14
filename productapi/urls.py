@@ -25,7 +25,8 @@ urlpatterns = [
     path('products/', include("products.urls")),
     path('api/user/',include("authapi.urls")),
     path('orders/',include("order.urls")),
-    path('reviews/',include("reviews.urls"))
+    path('review/',include("feedback.urls")),
+    path('location/',include("locations.urls"))
 
 ]
 
