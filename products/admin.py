@@ -7,14 +7,16 @@ from products.models import Product,Sliders,ProductsImage,Specialoffer,PopularPr
 class ItemInline(admin.StackedInline):
     model = ProductsImage
     extra = 0
-class ItemInlinepopular(admin.StackedInline):
-    model = PopularProductsImage
-    extra = 0
 
 class ImageAdmin(admin.ModelAdmin):
     inlines = [ItemInline]
     readonly_fields=("id",)
     # list_display = ['__all__']
+    
+
+class ItemInlinepopular(admin.StackedInline):
+    model = PopularProductsImage
+    extra = 0
 
 class Imagespopular(admin.ModelAdmin):
     inlines = [ItemInlinepopular]
